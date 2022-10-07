@@ -4,6 +4,8 @@ import App from './App';
 import Homepage from './pages/Homepage/Homepage';
 import Profile from './pages/Profile/Profile';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
+import ProfileOverview from './pages/Profile/pages/ProfileOverview/ProfileOverview';
+import ProfileData from './pages/Profile/pages/ProfileData/ProfileData';
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +21,16 @@ export const router = createBrowserRouter([
         path: '/profile',
         element: <Profile />,
         caseSensitive: true,
+        children: [
+          {
+            index: true,
+            element: <ProfileOverview />,
+          },
+          {
+            path: 'data',
+            element: <ProfileData />,
+          },
+        ],
       },
     ],
   },
